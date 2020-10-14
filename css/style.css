@@ -1,0 +1,201 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+body,
+html {
+  /* rgb(255,235,205) */
+  background-color: rgb(253, 246, 234);
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(127, 255, 212);
+
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(90, 90, 90, 0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(90, 90, 90, 0.75);
+  box-shadow: 0px 0px 5px 0px rgba(90, 90, 90, 0.75);
+}
+
+header nav {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  padding: 15px 10px;
+}
+
+header nav span a {
+  font-size: 2.5rem;
+  font-weight: 900;
+  font-style: italic;
+  text-decoration: none;
+  color: black;
+}
+
+header nav h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+header nav h2 span.totalValue {
+  font-size: 1.3rem;
+  font-weight: 100;
+}
+
+header nav ul {
+  display: flex;
+}
+
+header nav ul li {
+  list-style-type: none;
+}
+
+header nav ul li span.showCarrinho {
+  font-size: 1.3rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+header nav ul li div.seta {
+  width: 40px;
+  height: 10px;
+  position: absolute;
+  border-top: 0px solid transparent;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 30px solid black;
+  margin-left: 20px;
+  margin-top: 2px;
+  display: none;
+}
+
+header nav ul li ul.carrinho {
+  /* aquamarine - 127, 255, 212 */
+  background-color: rgba(127, 255, 212);
+  position: absolute;
+  margin-top: 20px;
+  width: 400px;
+  margin-left: -160px;
+  display: none;
+  flex-direction: column;
+  overflow-y: scroll;
+  min-height: 60px;
+  max-height: 180px;
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+}
+
+header nav ul li ul.carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+header nav ul li ul.carrinho li img {
+  width: 50px;
+  height: 50px;
+}
+
+/******** MAIN ********/
+
+main {
+  display: flex;
+  justify-content: center;
+}
+
+main div.produtos {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: 20px 0;
+}
+
+main div.produtos div.prod {
+  margin: 10px 20px 10px 0;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  padding: 10px;
+  background-color: white;
+
+  -webkit-box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+  -moz-box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+  box-shadow: 0px 0px 3px 0px rgba(90, 90, 90, 0.75);
+}
+
+main div.produtos div.prod img {
+  width: 150px;
+  height: 150px;
+  align-self: center;
+}
+
+main div.produtos div.prod p,
+main div.produtos div.prod span {
+  margin: 3px 0 3px 25px;
+}
+
+main div.produtos div.prod p {
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+main div.produtos div.prod button.btn {
+  border: 1px solid black;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: rgb(127, 255, 212);
+  font-weight: 600;
+}
+
+main div.produtos div.prod button.btn:hover {
+  background-color: rgb(181, 253, 229);
+}
+
+main span.poupup {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid;
+  position: absolute;
+  right: -218px;
+  transition: right 2s;
+}
+
+/******** FOOTER ********/
+footer {
+  /* aquamarine - 127, 255, 212 */
+  margin-top: 1px solid black;
+  width: 100%;
+  height: 70px;
+  min-height: 70px;
+  margin-top: auto;
+  /* background-color: rgb(127,255,212); */
+  background-color: rgb(162, 245, 217);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer nav {
+  width: 100%;
+  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
