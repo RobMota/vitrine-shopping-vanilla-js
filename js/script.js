@@ -11,48 +11,7 @@ let prod_array = [
     prod_preco: 10,
     estoque: 5,
   },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
-  {
-    imgPath: "./images/calca.jpg",
-    prod_name: "camiseta",
-    prod_preco: 10,
-    estoque: 5,
-  },
+
 ];
 
 let carrinho = document.querySelector(".carrinho");
@@ -77,36 +36,33 @@ prod_array.map((item, index) => {
     .insertAdjacentHTML("beforeend", itemElement);
 });
 
-//adicionar item ao carrinho
-
+//adicionar item ao carrinho e apresentar total
+let totalValue = document.querySelector(".totalValue");
+let total = 0.0;
 
 function comprarItem(index) {
-  let totalValue = document.querySelector('.totalValue');
-  
   let preco = parseFloat(prod_array[index].prod_preco).toFixed(2);
   let prodAdicionado = document.querySelector(`#prod-add-${index}`);
-  
-console.log(prodAdicionado)
 
+  total = total + prod_array[index].prod_preco;
+  totalValue.innerHTML = parseFloat(total).toFixed(2);
 
   if (prodAdicionado) {
     let quantValor = prodAdicionado.querySelector(".quantValor");
     let precoValor = prodAdicionado.querySelector(".precoValor");
-    
-    totalValue.innerHTML = preco * precoValor;
-    // totalValue = parseFloat(preco * quantValor.innerHTML).toFixed(2);
+
     quantValor.innerHTML = parseInt(quantValor.innerHTML) + 1;
     precoValor.innerHTML = parseFloat(preco * quantValor.innerHTML).toFixed(2);
-    
   } else {
-
     let liElement = `
     <li id="prod-add-${index}">
+    <button class="close" onclick="remover(${index})">X</button>
     <img src=${prod_array[index].imgPath} alt=${prod_array[index].prod_name} />
     <span>Quantidade: <strong class="quantValor"> 1 </strong></span>
     <span>Preço: R$ <strong class="precoValor"> ${preco} </strong></span>
     </li>
     `;
+
     carrinho.insertAdjacentHTML("beforeend", liElement);
   }
 }
@@ -124,3 +80,16 @@ showCar.addEventListener("click", () => {
     evento = true;
   }
 });
+
+//remover item do carrinho e atualiza o valor de total
+function remover(index) {
+  let item = document.querySelector(`#prod-add-${index}`);
+  let totalItem = item.querySelector(".precoValor");
+
+  total = total - totalItem.innerHTML;
+  totalValue.innerHTML = parseFloat(total).toFixed(2);
+
+  item.remove();
+}
+
+

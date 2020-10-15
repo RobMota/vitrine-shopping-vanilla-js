@@ -45,12 +45,13 @@ header nav span a {
 
 header nav h2 {
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 100;
 }
 
 header nav h2 span.totalValue {
   font-size: 1.3rem;
-  font-weight: 100;
+  font-weight: 700;
+  margin-left: 4px;
 }
 
 header nav ul {
@@ -109,8 +110,15 @@ header nav ul li ul.carrinho li img {
   height: 50px;
 }
 
-/******** MAIN ********/
+header nav ul li ul.carrinho li button.close {
+  border: none;
+  background-color: rgb(253, 246, 234);
+  padding: 2px 8px;
+  cursor: pointer;
+  border-radius: 4px;
+}
 
+/******** MAIN ********/
 main {
   display: flex;
   justify-content: center;
