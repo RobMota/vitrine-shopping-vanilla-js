@@ -68,7 +68,7 @@ prod_array.map((item, index) => {
   <img src=${item.imgPath} alt=${item.prod_name} />
 		<p>${item.prod_name}</p>
 		<span>Preço: R$ ${preco} <span class="precoValue"></span></span>
-		<span>Estoque: ${item.estoque}<span class="estoqueValue"></span></span>
+		<span>Estoque: ${item.estoque}</span>
 			<button class="btn" onclick="comprarItem(${index})">Comprar</button>
       </div>`;
 
@@ -78,28 +78,37 @@ prod_array.map((item, index) => {
 });
 
 //adicionar item ao carrinho
-let spanElement = document.querySelector('.poupup');
+
 
 function comprarItem(index) {
-  spanElement.style.right = 0;
-  spanElement.style.display = 'block';
+  let totalValue = document.querySelector('.totalValue');
   
-  setTimeout( function(){
-    spanElement.style.right = '-218px';
-    
-  }, 2000 )
-
-
   let preco = parseFloat(prod_array[index].prod_preco).toFixed(2);
+  let prodAdicionado = document.querySelector(`#prod-add-${index}`);
+  
+console.log(prodAdicionado)
 
-  let liElement = `
-  <li>
+
+  if (prodAdicionado) {
+    let quantValor = prodAdicionado.querySelector(".quantValor");
+    let precoValor = prodAdicionado.querySelector(".precoValor");
+    
+    totalValue.innerHTML = preco * precoValor;
+    // totalValue = parseFloat(preco * quantValor.innerHTML).toFixed(2);
+    quantValor.innerHTML = parseInt(quantValor.innerHTML) + 1;
+    precoValor.innerHTML = parseFloat(preco * quantValor.innerHTML).toFixed(2);
+    
+  } else {
+
+    let liElement = `
+    <li id="prod-add-${index}">
     <img src=${prod_array[index].imgPath} alt=${prod_array[index].prod_name} />
-    <span>Quantidade: <strong class="quantVale"> 0 </strong></span>
-    <span>Preço: R$ <strong class="precoValue"> ${preco} </strong></span>
-  </li>
-`;
+    <span>Quantidade: <strong class="quantValor"> 1 </strong></span>
+    <span>Preço: R$ <strong class="precoValor"> ${preco} </strong></span>
+    </li>
+    `;
     carrinho.insertAdjacentHTML("beforeend", liElement);
+  }
 }
 
 // apresentar e esconder carrinho

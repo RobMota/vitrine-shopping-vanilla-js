@@ -168,15 +168,6 @@ main div.produtos div.prod button.btn:hover {
   background-color: rgb(181, 253, 229);
 }
 
-main span.poupup {
-  background-color: white;
-  padding: 20px;
-  border: 1px solid;
-  position: absolute;
-  right: -218px;
-  transition: right 2s;
-}
-
 /******** FOOTER ********/
 footer {
   /* aquamarine - 127, 255, 212 */
